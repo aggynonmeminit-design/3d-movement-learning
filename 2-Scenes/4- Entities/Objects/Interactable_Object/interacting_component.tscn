@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b4orwyrb1k00d"]
+
+[ext_resource type="Script" uid="uid://h013gx157nd4" path="res://2-Scenes/4- Entities/Objects/Interactable_Object/interacting_component.gd" id="1_0y14j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
+radius = 1.0
+
+[node name="InteractingComponent" type="Node3D" unique_id=676403343 node_paths=PackedStringArray("label")]
+script = ExtResource("1_0y14j")
+label = NodePath("Label")
+
+[node name="Label" type="Label3D" parent="." unique_id=1147233749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+text = "Interact with \"E\""
+
+[node name="InteractionRange" type="Area3D" parent="." unique_id=844838594]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionRange" unique_id=692346677]
+shape = SubResource("SphereShape3D_bhunq")
+
+[connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
+[connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dsuxa8qs5vi1d"]
 
+[ext_resource type="PackedScene" uid="uid://yq7an7dnx1ll" path="res://2-Scenes/4- Entities/Objects/Interactable_Object/interactable_object.tscn" id="1_olcnm"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_sn0t7"]
 size = Vector3(1, 3.2938232, 1)
 
@@ -25,7 +27,7 @@ size = Vector3(40, 0.15, 40)
 [node name="Map" type="Node3D" parent="Env" unique_id=183806619]
 
 [node name="Pilar" type="StaticBody3D" parent="Env/Map" unique_id=341874507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.7694849, -15.482148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.52591157, -15.482148)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Map/Pilar" unique_id=4378155]
 mesh = SubResource("BoxMesh_sn0t7")
@@ -48,3 +50,5 @@ environment = SubResource("Environment_bhunq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env" unique_id=1959491831]
 transform = Transform3D(1, 0, 0, 0, 0.22835669, 0.9735776, 0, -0.9735776, 0.22835669, 0, 0, 0)
+
+[node name="Door" parent="." unique_id=1891822811 instance=ExtResource("1_olcnm")]
