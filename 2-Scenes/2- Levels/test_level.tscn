@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://dsuxa8qs5vi1d"]
 
-[ext_resource type="PackedScene" uid="uid://d1ngulh3pm07m" path="res://2-Scenes/3- Main Character/player.tscn" id="1_olcnm"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_sn0t7"]
 size = Vector3(1, 3.2938232, 1)
 
@@ -21,8 +19,6 @@ size = Vector3(40, 0.15, 40)
 [sub_resource type="Environment" id="Environment_bhunq"]
 
 [node name="Node3D" type="Node3D" unique_id=1055113195]
-
-[node name="Player" parent="." unique_id=1159183909 instance=ExtResource("1_olcnm")]
 
 [node name="Env" type="Node3D" parent="." unique_id=1721555676]
 

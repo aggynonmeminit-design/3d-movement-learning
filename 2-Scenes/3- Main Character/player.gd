@@ -83,4 +83,3 @@ func speed()                                                                    
 		return speed_factor * run_factor * walk_speed
 	else:
 		return speed_factor * walk_speed 
-#yay
