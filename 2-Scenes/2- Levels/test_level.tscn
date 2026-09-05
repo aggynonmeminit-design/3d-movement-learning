@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dsuxa8qs5vi1d"]
+
+[ext_resource type="PackedScene" uid="uid://d1ngulh3pm07m" path="res://2-Scenes/3- Main Character/player.tscn" id="1_olcnm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sn0t7"]
+size = Vector3(1, 3.2938232, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aphap"]
+size = Vector3(1, 3.2938232, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
+albedo_color = Color(0.09208148, 0.20240843, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+material = SubResource("StandardMaterial3D_riqys")
+size = Vector3(40, 0.15, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejmo6"]
+size = Vector3(40, 0.15, 40)
+
+[sub_resource type="Environment" id="Environment_bhunq"]
+
+[node name="Node3D" type="Node3D" unique_id=1055113195]
+
+[node name="Player" parent="." unique_id=1159183909 instance=ExtResource("1_olcnm")]
+
+[node name="Env" type="Node3D" parent="." unique_id=1721555676]
+
+[node name="Map" type="Node3D" parent="Env" unique_id=183806619]
+
+[node name="Pilar" type="StaticBody3D" parent="Env/Map" unique_id=341874507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.7694849, -15.482148)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Map/Pilar" unique_id=4378155]
+mesh = SubResource("BoxMesh_sn0t7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Map/Pilar" unique_id=1583479954]
+shape = SubResource("BoxShape3D_aphap")
+
+[node name="Ground" type="StaticBody3D" parent="Env/Map" unique_id=1916190674]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Map/Ground" unique_id=537316745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.196, 0)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Map/Ground" unique_id=236936192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.196, 0)
+shape = SubResource("BoxShape3D_ejmo6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env" unique_id=1490668485]
+environment = SubResource("Environment_bhunq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env" unique_id=1959491831]
+transform = Transform3D(1, 0, 0, 0, 0.22835669, 0.9735776, 0, -0.9735776, 0.22835669, 0, 0, 0)

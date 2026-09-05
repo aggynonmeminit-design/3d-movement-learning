@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dipo3fxsnhr8s"]
+
+[ext_resource type="Script" uid="uid://dcnqx6yiuepdx" path="res://2-Scenes/5- Systems/main_game.gd" id="1_5nf6f"]
+[ext_resource type="Script" uid="uid://macyhc5g4dch" path="res://2-Scenes/5- Systems/world.gd" id="2_spnub"]
+
+[node name="MainGame" type="Node" unique_id=1551069410]
+process_mode = 3
+script = ExtResource("1_5nf6f")
+
+[node name="Systems" type="Node" parent="." unique_id=313512404]
+process_mode = 3
+
+[node name="World" type="Node3D" parent="." unique_id=1276862651 node_paths=PackedStringArray("level_root", "entity_root", "effect_root")]
+process_mode = 1
+script = ExtResource("2_spnub")
+level_root = NodePath("LevelRoot")
+entity_root = NodePath("EntityRoot")
+effect_root = NodePath("EffectRoot")
+
+[node name="LevelRoot" type="Node3D" parent="World" unique_id=981729098]
+process_mode = 1
+
+[node name="EntityRoot" type="Node3D" parent="World" unique_id=1255347056]
+process_mode = 1
+
+[node name="EffectRoot" type="Node3D" parent="World" unique_id=1735492633]
+process_mode = 1
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1772758474]
+process_mode = 3
+layer = 10
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1533103587]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1531830862]
+process_mode = 2
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=2078682843]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TrasitionLayer" type="CanvasLayer" parent="." unique_id=464661962]
+process_mode = 3
+layer = 100
+
+[node name="TransitionRoot" type="Control" parent="TrasitionLayer" unique_id=1400790995]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=329796433]
+process_mode = 3
+layer = 128
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=116809986]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
