@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://wylfaut320y2" path="res://2-Scenes/4- Entities/Objects/Level_main_stuff/door.gd" id="2_t2ebp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
-size = Vector3(1.2, 2.2, 0.1)
+size = Vector3(1.5, 3, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_peryf"]
 
@@ -109,10 +109,10 @@ _data = {
 script = ExtResource("2_t2ebp")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1067963159]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.5, 0, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.75, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1332012886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
 mesh = SubResource("BoxMesh_bhunq")
 
 [node name="Interactable" parent="Pivot" unique_id=1837933573 instance=ExtResource("1_peryf")]

@@ -3,6 +3,7 @@ extends Node3D
 @onready var interactable: Interactable_Object = $Pivot/Interactable
 @onready var pivot: Node3D = $Pivot
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var mesh: MeshInstance3D = $Pivot/MeshInstance3D
 
 func _ready() -> void:
 	interactable.interact = on_interact

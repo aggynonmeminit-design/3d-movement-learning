@@ -1,12 +1,6 @@
 [gd_scene format=3 uid="uid://dsuxa8qs5vi1d"]
 
-[ext_resource type="PackedScene" uid="uid://gmkyjq8rf0rd" path="res://2-Scenes/4- Entities/Objects/Level_main_stuff/Door.tscn" id="1_olcnm"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_sn0t7"]
-size = Vector3(1, 3.2938232, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_aphap"]
-size = Vector3(1, 3.2938232, 1)
+[ext_resource type="PackedScene" uid="uid://cdd85cxl8srcs" path="res://2-Scenes/2- Levels/GreyBoxes/WallTest.tscn" id="1_aphap"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
 albedo_color = Color(0.09208148, 0.20240843, 0, 1)
@@ -18,21 +12,6 @@ size = Vector3(40, 0.15, 40)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejmo6"]
 size = Vector3(40, 0.15, 40)
 
-[sub_resource type="BoxMesh" id="BoxMesh_riqys"]
-size = Vector3(6.8242188, 3.9838867, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_olcnm"]
-size = Vector3(6.8242188, 3.9838867, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_i5nek"]
-size = Vector3(6.8242188, 3.9838867, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_olcnm"]
-size = Vector3(6.8242188, 1.2176819, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ueeld"]
-size = Vector3(6.8242188, 1.2176819, 1)
-
 [sub_resource type="Environment" id="Environment_bhunq"]
 
 [node name="Node3D" type="Node3D" unique_id=1055113195]
@@ -41,14 +20,8 @@ size = Vector3(6.8242188, 1.2176819, 1)
 
 [node name="Map" type="Node3D" parent="Env" unique_id=183806619]
 
-[node name="Pilar" type="StaticBody3D" parent="Env/Map" unique_id=341874507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.7219115, -15.482)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Map/Pilar" unique_id=4378155]
-mesh = SubResource("BoxMesh_sn0t7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Map/Pilar" unique_id=1583479954]
-shape = SubResource("BoxShape3D_aphap")
+[node name="Node3D" parent="Env/Map" unique_id=787819299 instance=ExtResource("1_aphap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1749997, 0)
 
 [node name="Ground" type="StaticBody3D" parent="Env/Map" unique_id=1916190674]
 
@@ -57,35 +30,6 @@ mesh = SubResource("BoxMesh_bhunq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Map/Ground" unique_id=236936192]
 shape = SubResource("BoxShape3D_ejmo6")
-
-[node name="Door" parent="Env/Map" unique_id=1067878599 instance=ExtResource("1_olcnm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5610232, 1.175, -0.38627124)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Env/Map" unique_id=405821961]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Env/Map/StaticBody3D" unique_id=793622732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4725761, 1.4919434, 0)
-mesh = SubResource("BoxMesh_riqys")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Map/StaticBody3D" unique_id=453880431]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4725761, 1.4919434, 0)
-shape = SubResource("BoxShape3D_olcnm")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Env/Map/StaticBody3D" unique_id=1091843491]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5904922, 1.4919434, 0)
-mesh = SubResource("BoxMesh_riqys")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Env/Map/StaticBody3D" unique_id=1069998325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5904922, 1.4919434, 0)
-shape = SubResource("BoxShape3D_i5nek")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Env/Map/StaticBody3D" unique_id=1987669917]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5236235, 2.8852067, 0)
-mesh = SubResource("BoxMesh_olcnm")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Env/Map/StaticBody3D" unique_id=1146168966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5236235, 2.8852067, 0)
-shape = SubResource("BoxShape3D_ueeld")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Env" unique_id=1490668485]
 environment = SubResource("Environment_bhunq")
