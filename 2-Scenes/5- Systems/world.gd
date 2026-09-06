@@ -18,6 +18,7 @@ const PLAYER = preload("uid://d1ngulh3pm07m")
 func setup_player(player_preload := PLAYER)                                            -> void:
 	var player_ins := player_preload.instantiate()
 	entity_root.add_child(player_ins)
+	player_ins.position.y += 1
 #---------------------------------------------------------------------------------------------------
 
 func setup_level(level:= TEST_LEVEL)                                            -> void:

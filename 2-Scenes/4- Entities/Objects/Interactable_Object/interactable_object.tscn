@@ -2,27 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ftcu3g82wofd" path="res://2-Scenes/4- Entities/Objects/Interactable_Object/interactable_object.gd" id="1_y2o5g"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
-radius = 3.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kb35t"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yfkf3"]
-
-[node name="InteractableObject" type="Area3D" unique_id=1837933573 node_paths=PackedStringArray("static_object", "mesh_object")]
+[node name="Interactable" type="Area3D" unique_id=1837933573]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_y2o5g")
-static_object = NodePath("StaticObject")
-mesh_object = NodePath("MeshObject")
-
-[node name="InteractableCollision" type="CollisionShape3D" parent="." unique_id=1753066668]
-shape = SubResource("SphereShape3D_bhunq")
-
-[node name="StaticObject" type="StaticBody3D" parent="." unique_id=1118091859]
-
-[node name="CollisionObject" type="CollisionShape3D" parent="StaticObject" unique_id=1735596245]
-shape = SubResource("BoxShape3D_kb35t")
-
-[node name="MeshObject" type="MeshInstance3D" parent="." unique_id=737231391]
-mesh = SubResource("BoxMesh_yfkf3")

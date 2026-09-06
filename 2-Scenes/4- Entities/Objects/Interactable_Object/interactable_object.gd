@@ -1,12 +1,9 @@
 extends Node3D
 class_name Interactable_Object
-
 #===================================================================================================
 
-@export var static_object          : StaticBody3D 
-@export var mesh_object            : MeshInstance3D
+@export var interact_name: String = ""
+@export var is_interactable: bool = true
 
-#===================================================================================================
-
-#check if player is in area
-#do something
+var interact: Callable = func() -> void:
+	pass

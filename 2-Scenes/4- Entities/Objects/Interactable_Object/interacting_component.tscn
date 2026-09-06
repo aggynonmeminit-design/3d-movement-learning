@@ -5,15 +5,17 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
 radius = 1.0
 
-[node name="InteractingComponent" type="Node3D" unique_id=676403343 node_paths=PackedStringArray("label")]
+[node name="InteractingComponent" type="Node3D" unique_id=676403343]
 script = ExtResource("1_0y14j")
-label = NodePath("Label")
 
 [node name="Label" type="Label3D" parent="." unique_id=1147233749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2770259, 0)
+layers = 524289
 text = "Interact with \"E\""
 
 [node name="InteractionRange" type="Area3D" parent="." unique_id=844838594]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionRange" unique_id=692346677]
 shape = SubResource("SphereShape3D_bhunq")

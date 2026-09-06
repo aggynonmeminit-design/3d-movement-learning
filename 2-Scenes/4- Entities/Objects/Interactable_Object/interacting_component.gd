@@ -2,7 +2,7 @@ extends Node3D
 class_name InteractionComponent
 #===================================================================================================
 
-@export var label: Label3D
+@onready var label: Label3D = $Label
 
 #---------------------------------------------------------------------------------------------------
 
@@ -10,14 +10,13 @@ var current_interactions := []
 var can_interact := true
 
 #===================================================================================================
+#Void Functions
 
 func _on_interaction_range_area_entered(area: Area3D) -> void:
 	current_interactions.push_back(area)
-
 func _on_interaction_range_area_exited(area: Area3D) -> void:
 	current_interactions.erase(area)
-
-#===================================================================================================
+#---------------------------------------------------------------------------------------------------
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact") and can_interact:
@@ -28,6 +27,8 @@ func _input(event: InputEvent) -> void:
 			await current_interactions[0].interact.call()
 			can_interact = true
 
+#---------------------------------------------------------------------------------------------------
+
 func _physics_process(_delta: float) -> void:
 	if current_interactions and can_interact:
 		current_interactions.sort_custom(sort_by_nearest)
@@ -36,6 +37,9 @@ func _physics_process(_delta: float) -> void:
 			label.show()
 	else: 
 		label.hide()
+
+#===================================================================================================
+#Return functions
 
 func sort_by_nearest(area1 : Node3D, area2: Node3D) -> bool:
 	var area1_distance := global_position.distance_to(area1.global_position)

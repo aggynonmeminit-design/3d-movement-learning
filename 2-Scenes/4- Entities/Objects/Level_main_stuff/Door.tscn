@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://gmkyjq8rf0rd"]
+
+[ext_resource type="PackedScene" uid="uid://yq7an7dnx1ll" path="res://2-Scenes/4- Entities/Objects/Interactable_Object/interactable_object.tscn" id="1_peryf"]
+[ext_resource type="Script" uid="uid://wylfaut320y2" path="res://2-Scenes/4- Entities/Objects/Level_main_stuff/door.gd" id="2_t2ebp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+size = Vector3(1.2, 2.2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_peryf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0l676"]
+size = Vector3(1.2, 2.2, 0.1)
+
+[sub_resource type="Animation" id="Animation_peryf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n1kv7"]
+_data = {
+&"RESET": SubResource("Animation_peryf")
+}
+
+[sub_resource type="Animation" id="Animation_u5kyc"]
+resource_name = "Close Door"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.5),
+"transitions": PackedFloat32Array(0.78458464, 2.5491216, 1),
+"update": 0,
+"values": [Vector3(0, 2.3561945, 0), Vector3(0, 2.6179938, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_c1qhd"]
+resource_name = "Open Door"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(3.0314178, 2.0000002, 9.849147),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.2617994, 0), Vector3(0, 2.3561945, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmiik"]
+_data = {
+&"Close Door": SubResource("Animation_u5kyc"),
+&"Open Door": SubResource("Animation_c1qhd")
+}
+
+[node name="Door" type="Node3D" unique_id=1067878599]
+script = ExtResource("2_t2ebp")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1067963159]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.5, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1332012886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="Interactable" parent="Pivot" unique_id=1837933573 instance=ExtResource("1_peryf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Interactable" unique_id=400600407]
+shape = SubResource("BoxShape3D_peryf")
+
+[node name="Static" type="StaticBody3D" parent="Pivot" unique_id=1999732237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Static" unique_id=743581386]
+shape = SubResource("BoxShape3D_0l676")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1913593182]
+root_node = NodePath("../Pivot/Static")
+libraries/ = SubResource("AnimationLibrary_n1kv7")
+libraries/Props = SubResource("AnimationLibrary_nmiik")
